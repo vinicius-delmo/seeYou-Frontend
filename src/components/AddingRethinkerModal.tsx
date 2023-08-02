@@ -35,9 +35,7 @@ const AddingRethinkerModal: React.FC<RethinkerModalProps> = ({
   });
   const [userPhoto, setUserPhoto] = useState<any | null>(null);
 
-  const fileNameWithoutAccents = unidecode(formData.name);
-  const sanitizedFileName = fileNameWithoutAccents.replace(/ /g, "-").toLowerCase();
-  const fileName = `${sanitizedFileName}`;
+ 
 
   const handleChange = (key: string, value: string) => {
     setFormData((prevData) => ({
@@ -76,9 +74,17 @@ const AddingRethinkerModal: React.FC<RethinkerModalProps> = ({
   const uploadPhoto = async () => {
     try {
       if (userPhoto && userPhoto.assets && userPhoto.assets.length > 0) {
+        
         const selectedAsset = userPhoto.assets[0];
         const uriParts = selectedAsset.uri.split(".");
         const fileType = uriParts[uriParts.length - 1];
+
+        const fileNameWithoutAccents = unidecode(formData.name);
+        const sanitizedFileName = fileNameWithoutAccents.replace(/ /g, "-").toLowerCase();
+        const fileName = `${sanitizedFileName}`;
+        
+        
+        formData.rethinker_profile_image = fileName+'.'+fileType;
   
         // Criar um novo objeto Blob com a imagem selecionada
         const blob = await new Promise((resolve, reject) => {
@@ -123,17 +129,21 @@ const AddingRethinkerModal: React.FC<RethinkerModalProps> = ({
       console.error("Erro ao enviar foto:", error);
     }
   };
-
   const handleRegisterWithPhoto = async () => {
     try {
-      await handleRegister(); // Chama o método para cadastrar o rethinker]
-      formData.rethinker_profile_image = fileName;
       await uploadPhoto(); // Chama o método para enviar a foto
+      
+      // Após o upload da foto, definir o nome do arquivo
+    
+  
+      await handleRegister(); // Chama o método para cadastrar o rethinker
+  
       closeModal();
     } catch (error) {
       console.error("Erro ao cadastrar:", error);
     }
   };
+  
 
   return (
     <Modal visible={isVisible} transparent={true} onRequestClose={closeModal}>
