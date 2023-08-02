@@ -43,7 +43,10 @@ const styles = StyleSheet.create({
     color: '#000',
     fontFamily: 'Roboto',
     fontSize: 16,
-    marginBottom: 5,
+    marginBottom: 16,
+    borderBottomWidth: 0.2,
+    borderBottomColor: 'rgba(0, 0, 0, 0.60)',
+
   },
 });
 
