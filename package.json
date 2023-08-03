@@ -22,6 +22,7 @@
     "react-native-picker-select": "^8.0.4",
     "react-native-svg": "^13.10.0",
     "react-native-web": "~0.19.6",
+    "rn-fetch-blob": "^0.12.0",
     "unidecode": "^0.1.8"
   },
   "devDependencies": {
