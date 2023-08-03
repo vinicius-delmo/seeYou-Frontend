@@ -143,6 +143,7 @@ function RethinkersList() {
             isVisible={true}
             closeModal={closeModal}
             rethinker={selectedRethinker}
+            photo={selectedRethinker.rethinker_profile_image}
           />
         )}
       </ScrollView>

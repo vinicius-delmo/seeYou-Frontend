@@ -149,44 +149,45 @@ const AddingRethinkerModal: React.FC<RethinkerModalProps> = ({
     <Modal visible={isVisible} transparent={true} onRequestClose={closeModal}>
       <TouchableOpacity activeOpacity={1} style={styles.modalOverlay}>
         <View style={styles.modalContent}>
+          <Text style={styles.titleModal}>Cadastro Rethinker</Text>
           <TextInput
             style={styles.input}
-            placeholder="Nome"
+            placeholder="Insira o nome"
             onChangeText={(text) => handleChange("name", text)}
           />
           <TextInput
             style={styles.input}
-            placeholder="Email"
+            placeholder="Insira o email"
             onChangeText={(text) => handleChange("email", text)}
           />
           <TextInput
             style={styles.input}
-            placeholder="Área"
+            placeholder="Insira a área. Ex: Dev, Design"
             onChangeText={(text) => handleChange("area", text)}
           />
           <TextInput
             style={styles.input}
-            placeholder="Sub Area"
+            placeholder="Insira a sub-área. Ex: Frontend, UX"
             onChangeText={(text) => handleChange("sub_area", text)}
           />
           <TextInput
             style={styles.input}
-            placeholder="Type Account"
+            placeholder="Insira o tipo de acesso"
             onChangeText={(text) => handleChange("type_account", text)}
           />
           <TextInput
             style={styles.input}
-            placeholder="Project 1"
+            placeholder="Insira o projeto"
             onChangeText={(text) => handleChange("project_1", text)}
           />
           <TextInput
             style={styles.input}
-            placeholder="Project 2"
+            placeholder="Insira o projeto"
             onChangeText={(text) => handleChange("project_2", text)}
           />
           <TextInput
             style={styles.input}
-            placeholder="Project 3"
+            placeholder="Insira o projeto"
             onChangeText={(text) => handleChange("project_3", text)}
           />
           <TouchableOpacity
@@ -272,6 +273,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 20,
   },
+  titleModal:{
+    color: "#D3FA3A",
+    fontFamily: "Roboto",
+    fontSize: 20,
+    textAlign: "center",
+    fontWeight: "bold",
+    marginBottom: 10
+  }
 });
 
 export default AddingRethinkerModal;
